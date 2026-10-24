@@ -1,0 +1,18 @@
+# Segredos e configuração local
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Dados gerados e backups
+data/
+*.dump
+*.parquet
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
