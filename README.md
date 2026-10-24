@@ -1,14 +1,14 @@
-# ⚓ Fleet Ops DB
+# Fleet Ops DB
 
 Banco de dados operacional (OLTP) de uma **frota marítima fictícia**, construído do zero em **PostgreSQL**, com foco em modelagem relacional, integridade, performance, segurança e, no final, extração incremental para um lakehouse.
 
-> 🚧 **Projeto em construção.** Este repositório começa só com o guia e a estrutura. O código é escrito fase por fase. Acompanhe o progresso pelo checklist abaixo e pelas [issues](../../issues).
+> **Projeto em construção.** Este repositório começa só com o guia e a estrutura. O código é escrito fase por fase. Acompanhe o progresso pelo checklist abaixo e pelas [issues](../../issues).
 
-> ⚠️ Todos os dados são **fictícios e gerados sinteticamente**. Nenhum dado real de empresa é usado.
+> Todos os dados são **fictícios e gerados sinteticamente**. Nenhum dado real de empresa é usado.
 
 ---
 
-## 🎯 Objetivo
+## Objetivo
 
 Mostrar, na prática, o lado **transacional** da engenharia de dados: de onde os dados vêm antes de chegar ao lakehouse.
 
@@ -23,7 +23,7 @@ Mostrar, na prática, o lado **transacional** da engenharia de dados: de onde os
 | DataOps | Docker, testes automatizados e CI no GitHub Actions |
 | Integração | Extração incremental e CDC para a camada Bronze de um lakehouse |
 
-## 🧭 Domínio
+## Domínio
 
 Uma empresa fictícia de apoio marítimo opera uma frota de embarcações. O banco registra:
 
@@ -36,7 +36,7 @@ Uma empresa fictícia de apoio marítimo opera uma frota de embarcações. O ban
 
 A especificação completa das entidades e das regras de negócio está em [docs/MODELO_DE_DADOS.md](docs/MODELO_DE_DADOS.md).
 
-## 🏗️ Arquitetura (visão final)
+## Arquitetura (visão final)
 
 ```mermaid
 flowchart LR
@@ -47,7 +47,7 @@ flowchart LR
     F[GitHub Actions] -.->|migrations + testes| B
 ```
 
-## 🗺️ Roadmap
+## Roadmap
 
 Cada fase tem uma issue com o checklist detalhado. O guia completo, com conceitos, entregáveis e critérios de pronto, está em [docs/ROADMAP.md](docs/ROADMAP.md).
 
@@ -61,7 +61,7 @@ Cada fase tem uma issue com o checklist detalhado. O guia completo, com conceito
 - [ ] **Fase 7:** Testes, backup e CI com GitHub Actions
 - [ ] **Fase 8:** Extração incremental e CDC para o lakehouse
 
-## 📁 Estrutura
+## Estrutura
 
 ```text
 fleet-ops-db/
@@ -80,30 +80,37 @@ fleet-ops-db/
 
 Cada pasta tem um `README.md` explicando o que vai nela.
 
-## 🚀 Como começar
+## Como começar
 
 1. Prepare o Linux Mint: [docs/SETUP_LINUX_MINT.md](docs/SETUP_LINUX_MINT.md)
-2. Siga a **Fase 0** em [docs/ROADMAP.md](docs/ROADMAP.md)
+2. Siga o [docs/ROADMAP.md](docs/ROADMAP.md) a partir da próxima fase pendente
 3. Marque o checklist da issue de cada fase conforme avançar
 
+## Como rodar
 
-## ▶️ Como rodar
-
-```
 1. Copie o arquivo de exemplo e defina sua senha:
-   cp .env.example .env
+
+   `cp .env.example .env`
+
 2. Suba o banco:
-   docker compose up -d
+
+   `docker compose up -d`
+
 3. Confira se está saudável:
-   docker compose ps
+
+   `docker compose ps`
+
 4. Conecte pelo psql:
-   psql -h localhost -U fleet_admin -d fleet_ops
+
+   `psql -h localhost -U fleet_admin -d fleet_ops`
+
 5. Para parar o banco (mantendo os dados):
-   docker compose down
-```
 
+   `docker compose down`
 
-## 🛠️ Stack
+> **Atenção:** `docker compose down -v` apaga também o volume, ou seja, **todos os dados do banco**.
+
+## Stack
 
 PostgreSQL · SQL · PL/pgSQL · Python · Docker · GitHub Actions · pytest
 
