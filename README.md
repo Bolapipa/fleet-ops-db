@@ -74,8 +74,8 @@ fleet-ops-db/
 │   └── functions/     # Funções e triggers PL/pgSQL
 ├── benchmarks/        # Planos EXPLAIN ANALYZE antes e depois
 ├── tests/             # Testes automatizados (pytest)
-└── extract/           # Extração incremental para o lakehouse (fase 8)
-└── .github/workflows/ # CI (fase 7)
+├── extract/           # Extração incremental para o lakehouse (fase 8)
+└── .github/workflows/ # CI (você cria na fase 7)
 ```
 
 Cada pasta tem um `README.md` explicando o que vai nela.
