@@ -51,7 +51,7 @@ flowchart LR
 
 Cada fase tem uma issue com o checklist detalhado. O guia completo, com conceitos, entregáveis e critérios de pronto, está em [docs/ROADMAP.md](docs/ROADMAP.md).
 
-- [ ] **Fase 0:** Ambiente (Docker + PostgreSQL rodando no Linux Mint)
+- [x] **Fase 0:** Ambiente (Docker + PostgreSQL rodando no Linux Mint)
 - [ ] **Fase 1:** Modelagem relacional e diagrama ER
 - [ ] **Fase 2:** Migrations versionadas
 - [ ] **Fase 3:** Dados sintéticos em volume
