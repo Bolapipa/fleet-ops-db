@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:17 # baixa o Postgres versão 17. Fixar a versão evita que uma atualização quebre o projeto.
+
+    container_name: fleet_ops_postgres
+    
+    env_file: .env # entrega suas variáveis ao container.
+
+    ports: # liga a porta 5432 do seu computador à do container. É por ela que o psql e o DBeaver vão conectar.
+      - "5432:5432" 
+
+    volumes: # guarda os dados no volume fleet_ops_data, declarado no fim do arquivo. Isso faz os dados sobreviverem quando o container é apagado.
+      - fleet_ops_data:/var/lib/postgresql/data 
+
+    healthcheck: # a cada 5 segundos roda pg_isready para saber se o banco já aceita conexões. O $$ com dois cifrões é de propósito: ele impede o Compose de tentar substituir a variável e a deixa para o container resolver.
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  fleet_ops_data:
+
+# Quando salvar esse arquivo faça: "docker compose config". Isso imprime o arquivo já interpretado. Se houver erro de sintaxe, ele aponta a linha. Se mostrar o YAML com a sua senha preenchida, está certo.

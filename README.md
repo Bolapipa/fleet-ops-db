@@ -86,6 +86,23 @@ Cada pasta tem um `README.md` explicando o que vai nela.
 2. Siga a **Fase 0** em [docs/ROADMAP.md](docs/ROADMAP.md)
 3. Marque o checklist da issue de cada fase conforme avançar
 
+
+## ▶️ Como rodar
+
+```
+1. Copie o arquivo de exemplo e defina sua senha:
+   cp .env.example .env
+2. Suba o banco:
+   docker compose up -d
+3. Confira se está saudável:
+   docker compose ps
+4. Conecte pelo psql:
+   psql -h localhost -U fleet_admin -d fleet_ops
+5. Para parar o banco (mantendo os dados):
+   docker compose down
+```
+
+
 ## 🛠️ Stack
 
 PostgreSQL · SQL · PL/pgSQL · Python · Docker · GitHub Actions · pytest
